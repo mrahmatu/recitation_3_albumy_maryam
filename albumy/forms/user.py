@@ -19,9 +19,10 @@ class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(1, 20),
                                                    Regexp('^[a-zA-Z0-9]*$',
                                                           message='The username should contain only a-z, A-Z and 0-9.')])
+    nickname = StringField('Nickname', validators=[DataRequired(), Length(1, 30)])
     website = StringField('Website', validators=[Optional(), Length(0, 255)])
     location = StringField('City', validators=[Optional(), Length(0, 50)])
-    bio = TextAreaField('Bio', validators=[Optional(), Length(0, 120)])
+    bio = TextAreaField('Story of my life', validators=[Optional(), Length(0, 120)])
     submit = SubmitField()
 
     def validate_username(self, field):
